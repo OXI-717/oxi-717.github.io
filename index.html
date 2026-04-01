@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ilya Golubev -- Senior Full-Stack Engineer</title>
+<meta name="description" content="Senior Full-Stack Engineer, Tech Lead, AI Engineer. 20+ years in software development. TypeScript, React, Next.js, Go, Python, Kubernetes, AI/LLM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--surface:#12121a;--border:#1e1e2e;
+  --text:#e0e0e8;--dim:#6b6b80;--accent:#00d4aa;
+  --accent2:#7c5cfc;--accent3:#ff6b6b;
+  --mono:'JetBrains Mono',monospace;--sans:'Space Grotesk',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;overflow-x:hidden}
+::selection{background:var(--accent);color:var(--bg)}
+
+/* Grain overlay */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity:.4
+}
+
+/* Canvas bg */
+#matrix-bg{position:fixed;inset:0;z-index:0;opacity:.07}
+
+.container{max-width:1100px;margin:0 auto;padding:0 2rem;position:relative;z-index:1}
+
+/* Header */
+header{min-height:100vh;display:flex;align-items:center;padding:4rem 0}
+.hero{width:100%}
+.hero-label{
+  font-family:var(--mono);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:1.5rem;
+  opacity:0;animation:fadeUp .8s .2s forwards
+}
+.hero-name{
+  font-size:clamp(3rem,8vw,5.5rem);font-weight:700;line-height:1.05;
+  margin-bottom:1rem;
+  opacity:0;animation:fadeUp .8s .4s forwards
+}
+.hero-name span{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text
+}
+.hero-title{
+  font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--dim);font-weight:300;
+  margin-bottom:2.5rem;
+  opacity:0;animation:fadeUp .8s .6s forwards
+}
+.hero-stats{
+  display:flex;gap:3rem;flex-wrap:wrap;margin-bottom:3rem;
+  opacity:0;animation:fadeUp .8s .8s forwards
+}
+.stat-num{font-size:2.2rem;font-weight:700;font-family:var(--mono);color:var(--accent)}
+.stat-label{font-size:.8rem;color:var(--dim);text-transform:uppercase;letter-spacing:.1em}
+.hero-links{
+  display:flex;gap:1rem;flex-wrap:wrap;
+  opacity:0;animation:fadeUp .8s 1s forwards
+}
+.hero-links a{
+  font-family:var(--mono);font-size:.85rem;
+  color:var(--text);text-decoration:none;
+  padding:.6rem 1.4rem;
+  border:1px solid var(--border);border-radius:4px;
+  transition:all .3s ease;position:relative;overflow:hidden
+}
+.hero-links a::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  opacity:0;transition:opacity .3s;z-index:-1
+}
+.hero-links a:hover{border-color:var(--accent);color:#fff}
+.hero-links a:hover::before{opacity:.15}
+.scroll-hint{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:.7rem;color:var(--dim);letter-spacing:.1em;
+  opacity:0;animation:fadeUp .8s 1.2s forwards
+}
+.scroll-hint::after{
+  content:'';display:block;width:1px;height:30px;
+  background:var(--dim);margin:8px auto 0;
+  animation:pulse 2s infinite
+}
+
+/* Sections */
+section{padding:6rem 0}
+.section-label{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.25em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:.5rem
+}
+.section-title{font-size:2rem;font-weight:600;margin-bottom:3rem}
+
+/* Tech grid */
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem}
+.tech-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  padding:1.5rem;transition:all .4s ease;position:relative;overflow:hidden
+}
+.tech-card::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:2px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  transform:scaleX(0);transform-origin:left;transition:transform .4s ease
+}
+.tech-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.tech-card:hover::before{transform:scaleX(1)}
+.tech-card h3{font-family:var(--mono);font-size:.8rem;color:var(--accent);margin-bottom:.8rem;letter-spacing:.05em}
+.tech-card p{font-size:.9rem;color:var(--dim);line-height:1.7}
+
+/* Projects */
+.project{
+  background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  padding:2rem;margin-bottom:1.5rem;
+  transition:all .4s ease;position:relative
+}
+.project:hover{border-color:var(--accent2)}
+.project-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem}
+.project h3{font-size:1.2rem;font-weight:600}
+.project-tag{
+  font-family:var(--mono);font-size:.65rem;
+  padding:.3rem .7rem;border-radius:3px;
+  background:rgba(0,212,170,.1);color:var(--accent);
+  border:1px solid rgba(0,212,170,.2)
+}
+.project p{color:var(--dim);font-size:.9rem;margin-bottom:1rem;line-height:1.7}
+.project-stack{display:flex;flex-wrap:wrap;gap:.4rem}
+.project-stack span{
+  font-family:var(--mono);font-size:.7rem;
+  padding:.2rem .5rem;border-radius:3px;
+  background:rgba(124,92,252,.08);color:var(--accent2);
+  border:1px solid rgba(124,92,252,.15)
+}
+
+/* Timeline */
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:1px;
+  background:linear-gradient(to bottom,var(--accent),var(--accent2),transparent)
+}
+.tl-item{margin-bottom:2.5rem;position:relative}
+.tl-item::before{
+  content:'';position:absolute;left:-2rem;top:.4rem;width:8px;height:8px;
+  border-radius:50%;background:var(--accent);border:2px solid var(--bg)
+}
+.tl-period{font-family:var(--mono);font-size:.75rem;color:var(--accent);margin-bottom:.3rem}
+.tl-role{font-size:1.1rem;font-weight:600;margin-bottom:.2rem}
+.tl-company{font-size:.9rem;color:var(--dim);margin-bottom:.5rem}
+.tl-desc{font-size:.85rem;color:var(--dim);line-height:1.7}
+
+/* Achievements */
+.achievements{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem}
+.achievement{
+  background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;
+  transition:all .3s ease
+}
+.achievement:hover{border-color:var(--accent2);transform:translateY(-2px)}
+.achievement-icon{
+  font-size:1.5rem;min-width:2.5rem;height:2.5rem;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,212,170,.08);border-radius:6px;flex-shrink:0
+}
+.achievement p{font-size:.85rem;color:var(--dim);line-height:1.6}
+.achievement strong{color:var(--text)}
+
+/* Certs */
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem}
+.cert{
+  padding:1rem 1.2rem;border:1px solid var(--border);border-radius:6px;
+  font-size:.85rem;display:flex;justify-content:space-between;align-items:center
+}
+.cert-name{color:var(--text)}
+.cert-year{font-family:var(--mono);font-size:.75rem;color:var(--dim)}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+.contact-item{
+  padding:1.2rem;background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  text-decoration:none;color:var(--text);transition:all .3s ease;display:block
+}
+.contact-item:hover{border-color:var(--accent);transform:translateY(-2px)}
+.contact-item .label{font-family:var(--mono);font-size:.7rem;color:var(--accent);margin-bottom:.3rem;letter-spacing:.05em}
+.contact-item .value{font-size:.95rem}
+
+/* Footer */
+footer{
+  padding:3rem 0;border-top:1px solid var(--border);
+  text-align:center;font-size:.8rem;color:var(--dim)
+}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+.reveal{opacity:0;transform:translateY(30px);transition:all .8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:640px){
+  .hero-stats{gap:2rem}
+  .tech-grid,.achievements{grid-template-columns:1fr}
+  section{padding:4rem 0}
+  .project{padding:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<canvas id="matrix-bg"></canvas>
+
+<header>
+<div class="container">
+  <div class="hero">
+    <div class="hero-label">// available for hire -- remote</div>
+    <h1 class="hero-name">Ilya <span>Golubev</span></h1>
+    <p class="hero-title">Senior Full-Stack Engineer &middot; Tech Lead &middot; AI Engineer</p>
+    <div class="hero-stats">
+      <div><div class="stat-num">20+</div><div class="stat-label">Years in Engineering</div></div>
+      <div><div class="stat-num">47+</div><div class="stat-label">Services in Production</div></div>
+      <div><div class="stat-num">4</div><div class="stat-label">MCP Servers Built</div></div>
+      <div><div class="stat-num">25</div><div class="stat-label">Engineers Led</div></div>
+    </div>
+    <div class="hero-links">
+      <a href="https://github.com/OXI-717">GitHub</a>
+      <a href="https://linkedin.com/in/oxigen717">LinkedIn</a>
+      <a href="mailto:golubev.ilya@gmail.com">Email</a>
+      <a href="#projects">Projects</a>
+    </div>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</div>
+</header>
+
+<section id="skills">
+<div class="container">
+  <div class="section-label">// 01 capabilities</div>
+  <h2 class="section-title reveal">Tech Stack</h2>
+  <div class="tech-grid">
+    <div class="tech-card reveal"><h3>Frontend</h3><p>TypeScript, React 19, Next.js, React Native, Expo, Vue.js, Tailwind CSS, tRPC</p></div>
+    <div class="tech-card reveal"><h3>Backend</h3><p>Node.js, Hono, Go, Python, FastAPI, gRPC, WebSocket, Microservices</p></div>
+    <div class="tech-card reveal"><h3>AI &amp; LLM</h3><p>Claude API, OpenAI, Gemini, MCP Servers, RAG Pipelines, LangChain, pgvector, FAISS</p></div>
+    <div class="tech-card reveal"><h3>Databases</h3><p>PostgreSQL, Redis, Elasticsearch, Weaviate, Oracle, ClickHouse, Supabase</p></div>
+    <div class="tech-card reveal"><h3>DevOps</h3><p>Docker, Kubernetes, Helm, Terraform, CloudFormation, AWS, Yandex Cloud, GitHub Actions</p></div>
+    <div class="tech-card reveal"><h3>Monitoring</h3><p>Prometheus, Grafana, Loki, Alertmanager, Istio, Kiali, CloudWatch, ELK</p></div>
+    <div class="tech-card reveal"><h3>Security</h3><p>PCI DSS v3.2.1, AWS WAF, IAM, KMS, network segmentation, CloudTrail audit</p></div>
+    <div class="tech-card reveal"><h3>Mobile</h3><p>React Native, Expo, EAS Build, App Store, Google Play, RuStore, Maestro E2E</p></div>
+  </div>
+</div>
+</section>
+
+<section id="projects">
+<div class="container">
+  <div class="section-label">// 02 recent work</div>
+  <h2 class="section-title reveal">Projects</h2>
+
+  <div class="project reveal">
+    <div class="project-header">
+      <h3>EdTech SaaS Platform</h3>
+      <span class="project-tag">2026 -- Present</span>
+    </div>
+    <p>Built from scratch: 11 microservices, web + mobile apps published on App Store, Google Play, RuStore. 2600+ exam questions, 19 courses, 52 lessons with audio generation. Pre-push CI pipeline with 10 checks, 275+ automated tests, zero broken deploys.</p>
+    <div class="project-stack">
+      <span>TypeScript</span><span>React 19</span><span>Next.js</span><span>React Native</span><span>Expo</span><span>Supabase</span><span>PostgreSQL</span><span>Docker</span><span>Vitest</span><span>Playwright</span>
+    </div>
+  </div>
+
+  <div class="project reveal">
+    <div class="project-header">
+      <h3>Financial Analysis Platform</h3>
+      <span class="project-tag">2025 -- Present</span>
+    </div>
+    <p>Multi-app platform for tax compliance: centralized auth server (337 tests, zero security incidents), tax portal with AI document classification, 10-stage AI pipeline reducing report generation from days to minutes, 6-stage RAG pipeline cutting response time by 80%.</p>
+    <div class="project-stack">
+      <span>Next.js</span><span>Hono</span><span>FastAPI</span><span>pgvector</span><span>OpenRouter</span><span>Gemini</span><span>RAG</span><span>n8n</span><span>Terraform</span>
+    </div>
+  </div>
+
+  <div class="project reveal">
+    <div class="project-header">
+      <h3>MCP Servers &amp; AI Tools</h3>
+      <span class="project-tag">2026 -- Present</span>
+    </div>
+    <p>Among the first Model Context Protocol servers in the ecosystem: Oracle Database, Yandex Search + YandexGPT, Russian legal system (Garant), Claude Code plugin system with marketplace architecture.</p>
+    <div class="project-stack">
+      <span>Python</span><span>FastAPI</span><span>MCP</span><span>Claude API</span><span>OpenAI</span><span>Docker</span>
+    </div>
+  </div>
+
+  <div class="project reveal">
+    <div class="project-header">
+      <h3>Fintech &amp; Crypto Infrastructure</h3>
+      <span class="project-tag">2020 -- Present</span>
+    </div>
+    <p>PCI DSS v3.2.1 compliant AWS infrastructure, 10+ payment gateway integrations (fiat + crypto + TON), cryptocurrency trading platform with 4 Go microservices, real-time data aggregation from 150+ sources. Kubernetes cluster with 99.9% uptime, 22 Grafana dashboards, Istio service mesh.</p>
+    <div class="project-stack">
+      <span>Go</span><span>Python</span><span>AWS</span><span>Kubernetes</span><span>Helm</span><span>Prometheus</span><span>Grafana</span><span>Istio</span><span>Terraform</span><span>PCI DSS</span>
+    </div>
+  </div>
+
+  <div class="project reveal">
+    <div class="project-header">
+      <h3>UnitECO Product Line</h3>
+      <span class="project-tag">2010 -- Present</span>
+    </div>
+    <p>CCTV systems, fire/security alarm, access controllers. 4 registered intellectual property certificates (Rospatent). Built with C++, Qt, Embedded Linux. Team of up to 25 engineers.</p>
+    <div class="project-stack">
+      <span>C++</span><span>Qt</span><span>Embedded Linux</span><span>Oracle</span><span>PostgreSQL</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="achievements">
+<div class="container">
+  <div class="section-label">// 03 highlights</div>
+  <h2 class="section-title reveal">Key Achievements</h2>
+  <div class="achievements">
+    <div class="achievement reveal">
+      <div class="achievement-icon">&#9881;</div>
+      <div><p><strong>4 MCP Servers</strong> -- among the first Model Context Protocol servers in the ecosystem (Oracle DB, Yandex Search, Garant, Claude Code)</p></div>
+    </div>
+    <div class="achievement reveal">
+      <div class="achievement-icon">&#9878;</div>
+      <div><p><strong>PCI DSS v3.2.1</strong> -- designed compliant AWS infrastructure, successful AOC audit, 10+ payment gateways integrated</p></div>
+    </div>
+    <div class="achievement reveal">
+      <div class="achievement-icon">&#9733;</div>
+      <div><p><strong>99.9% Uptime</strong> -- Kubernetes cluster on Yandex Cloud with Prometheus, Grafana, Istio service mesh</p></div>
+    </div>
+    <div class="achievement reveal">
+      <div class="achievement-icon">&#128241;</div>
+      <div><p><strong>3 App Stores</strong> -- mobile apps published on Apple App Store, Google Play, and RuStore</p></div>
+    </div>
+    <div class="achievement reveal">
+      <div class="achievement-icon">&#128200;</div>
+      <div><p><strong>80% faster</strong> -- RAG pipeline reduced tax response preparation time, 10-stage AI pipeline generates reports in minutes instead of days</p></div>
+    </div>
+    <div class="achievement reveal">
+      <div class="achievement-icon">&#128218;</div>
+      <div><p><strong>4 Rospatent certificates</strong> -- registered software and databases for UnitECO product line (2010-2012)</p></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="career">
+<div class="container">
+  <div class="section-label">// 04 career path</div>
+  <h2 class="section-title reveal">Experience</h2>
+  <div class="timeline reveal">
+    <div class="tl-item"><div class="tl-period">2026 -- Present</div><div class="tl-role">Founder &amp; Full-Stack Developer</div><div class="tl-company">GIMS Platform (navolnu.ru) &middot; Personal</div><div class="tl-desc">EdTech SaaS: 11 microservices, 2600+ questions, mobile apps in 3 stores</div></div>
+    <div class="tl-item"><div class="tl-period">2025 -- Present</div><div class="tl-role">Full-Stack Developer &amp; AI Architect</div><div class="tl-company">Unite Group of Companies</div><div class="tl-desc">Financial analysis platform: auth server, tax portal, AI pipelines, RAG</div></div>
+    <div class="tl-item"><div class="tl-period">2020 -- Present</div><div class="tl-role">Architect &amp; Lead Developer</div><div class="tl-company">Confidential &middot; Fintech</div><div class="tl-desc">Crypto trading platform, PCI DSS infrastructure, Kubernetes, 150+ data sources</div></div>
+    <div class="tl-item"><div class="tl-period">2010 -- Present</div><div class="tl-role">CTO &amp; Head of Development</div><div class="tl-company">Unite Group of Companies</div><div class="tl-desc">Led 25 engineers, UnitECO product line, 4 Rospatent certificates</div></div>
+    <div class="tl-item"><div class="tl-period">2016 -- 2018</div><div class="tl-role">Senior Software Engineer</div><div class="tl-company">Colvir Software Solutions</div><div class="tl-desc">Banking MIS module (Delphi, PL/SQL, Oracle)</div></div>
+    <div class="tl-item"><div class="tl-period">2004 -- 2006</div><div class="tl-role">Software Developer</div><div class="tl-company">Intel Corporation</div><div class="tl-desc">Eclipse IDE integration for IA-32, IA-64 platforms</div></div>
+    <div class="tl-item"><div class="tl-period">2002 -- 2004</div><div class="tl-role">Early Career</div><div class="tl-company">UNN Research &middot; Public (BREW Games)</div><div class="tl-desc">Cartography research, mobile game development (ARM/BREW)</div></div>
+  </div>
+</div>
+</section>
+
+<section id="education">
+<div class="container">
+  <div class="section-label">// 05 education &amp; certs</div>
+  <h2 class="section-title reveal">Credentials</h2>
+  <div style="margin-bottom:2rem" class="reveal">
+    <h3 style="font-size:1.1rem;margin-bottom:.3rem">Lobachevsky State University (UNN)</h3>
+    <p style="color:var(--dim);font-size:.9rem">Faculty of Computational Mathematics and Cybernetics &middot; Engineering Diploma &middot; 2000-2005</p>
+    <p style="color:var(--dim);font-size:.85rem;margin-top:.3rem">Correspondence Physics &amp; Mathematics School at MIPT (1998-2000) &middot; Physics: 5/5, Math: 5/5</p>
+  </div>
+  <div class="certs reveal">
+    <div class="cert"><span class="cert-name">AI Mindset -- AI-Native Organizations</span><span class="cert-year">2025-2026</span></div>
+    <div class="cert"><span class="cert-name">ChatGPT Professional -- Terra AI University (40 topics)</span><span class="cert-year">2023-2024</span></div>
+    <div class="cert"><span class="cert-name">Yandex YaC/e -- Education Technology</span><span class="cert-year">2024</span></div>
+    <div class="cert"><span class="cert-name">GPT Week -- Yandex School of Data Analysis</span><span class="cert-year">2023</span></div>
+    <div class="cert"><span class="cert-name">AWS Innovate</span><span class="cert-year">2021</span></div>
+    <div class="cert"><span class="cert-name">Blockchain Basics -- Coursera</span><span class="cert-year">2023</span></div>
+  </div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+  <div class="section-label">// 06 get in touch</div>
+  <h2 class="section-title reveal">Contact</h2>
+  <div class="contact-grid reveal">
+    <a class="contact-item" href="mailto:golubev.ilya@gmail.com"><div class="label">EMAIL</div><div class="value">golubev.ilya@gmail.com</div></a>
+    <a class="contact-item" href="https://linkedin.com/in/oxigen717"><div class="label">LINKEDIN</div><div class="value">linkedin.com/in/oxigen717</div></a>
+    <a class="contact-item" href="https://github.com/OXI-717"><div class="label">GITHUB</div><div class="value">github.com/OXI-717</div></a>
+    <a class="contact-item" href="https://t.me/oxigen404"><div class="label">TELEGRAM</div><div class="value">@oxigen404</div></a>
+  </div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+  <p>Ilya Golubev &middot; Nizhny Novgorod, Russia &middot; Available for remote work</p>
+</div>
+</footer>
+
+<script>
+// Matrix background
+const c=document.getElementById('matrix-bg'),ctx=c.getContext('2d');
+function resize(){c.width=innerWidth;c.height=innerHeight}
+resize();addEventListener('resize',resize);
+const keywords='TypeScript React Next.js Go Python Docker K8s Helm Terraform AWS MCP RAG LLM Claude PostgreSQL Redis FastAPI Hono Expo Grafana Prometheus Istio'.split(' ');
+const cols=Math.floor(c.width/20),drops=Array(cols).fill(1);
+function draw(){
+  ctx.fillStyle='rgba(10,10,15,.05)';ctx.fillRect(0,0,c.width,c.height);
+  ctx.fillStyle='#00d4aa';ctx.font='11px JetBrains Mono';
+  for(let i=0;i<drops.length;i++){
+    const t=keywords[Math.floor(Math.random()*keywords.length)];
+    ctx.fillText(t[Math.floor(Math.random()*t.length)],i*20,drops[i]*20);
+    if(drops[i]*20>c.height&&Math.random()>.975)drops[i]=0;
+    drops[i]++
+  }
+}
+setInterval(draw,50);
+
+// Scroll reveal
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
