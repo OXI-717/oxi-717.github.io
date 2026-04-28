@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ilya Golubev -- Senior Full-Stack Engineer</title>
-<meta name="description" content="Senior Full-Stack Engineer, Tech Lead, AI Engineer. 20+ years in software development. TypeScript, React, Next.js, Go, Python, Kubernetes, AI/LLM.">
+<title>Ilya Golubev -- AI Agent Systems Engineer</title>
+<meta name="description" content="AI Agent Systems Engineer, AI Automation Architect. Plugin marketplaces, MCP servers, AI code review pipelines, agentic workflows. 20+ years in software engineering.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -53,6 +53,14 @@ header{min-height:100vh;display:flex;align-items:center;padding:4rem 0}
   font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--dim);font-weight:300;
   margin-bottom:2.5rem;
   opacity:0;animation:fadeUp .8s .6s forwards
+}
+.hero-hook{
+  font-size:1.05rem;color:var(--text);font-weight:400;
+  margin-bottom:2.5rem;max-width:700px;line-height:1.7;
+  opacity:0;animation:fadeUp .8s .7s forwards
+}
+.hero-hook em{
+  color:var(--accent);font-style:normal;font-weight:500
 }
 .hero-stats{
   display:flex;gap:3rem;flex-wrap:wrap;margin-bottom:3rem;
@@ -218,12 +226,13 @@ footer{
   <div class="hero">
     <div class="hero-label">// available for hire -- remote</div>
     <h1 class="hero-name">Ilya <span>Golubev</span></h1>
-    <p class="hero-title">Senior Full-Stack Engineer &middot; Tech Lead &middot; AI Engineer</p>
+    <p class="hero-title">AI Agent Systems Engineer &middot; AI Automation Architect</p>
+    <p class="hero-hook">When my 25-person team downsized to 1, I didn't stop shipping. I built <em>plugin marketplaces</em>, <em>AI code review pipelines</em>, and <em>MCP servers</em> -- delivering what used to take a team, now powered by agentic workflows. 20 years of full-stack engineering, now focused on making AI agents do real work.</p>
     <div class="hero-stats">
+      <div><div class="stat-num">20+</div><div class="stat-label">Plugins &amp; MCP Servers</div></div>
+      <div><div class="stat-num">10-stage</div><div class="stat-label">AI Pipeline in Prod</div></div>
+      <div><div class="stat-num">80%</div><div class="stat-label">Faster with RAG</div></div>
       <div><div class="stat-num">20+</div><div class="stat-label">Years in Engineering</div></div>
-      <div><div class="stat-num">47+</div><div class="stat-label">Services in Production</div></div>
-      <div><div class="stat-num">4</div><div class="stat-label">MCP Servers Built</div></div>
-      <div><div class="stat-num">25</div><div class="stat-label">Engineers Led</div></div>
     </div>
     <div class="hero-links">
       <a href="https://github.com/OXI-717">GitHub</a>
@@ -241,14 +250,14 @@ footer{
   <div class="section-label">// 01 capabilities</div>
   <h2 class="section-title reveal">Tech Stack</h2>
   <div class="tech-grid">
+    <div class="tech-card reveal"><h3>AI Agent Engineering</h3><p>Claude Code, Codex CLI, MCP Servers, Plugin Marketplaces, Agentic Workflows, Multi-Agent Pipelines, Prompt Engineering</p></div>
+    <div class="tech-card reveal"><h3>AI &amp; LLM</h3><p>Claude API, OpenAI, Gemini, RAG Pipelines, LangChain, pgvector, FAISS, n8n Automation, AI Code Review</p></div>
     <div class="tech-card reveal"><h3>Frontend</h3><p>TypeScript, React 19, Next.js, React Native, Expo, Vue.js, Tailwind CSS, tRPC</p></div>
     <div class="tech-card reveal"><h3>Backend</h3><p>Node.js, Hono, Go, Python, FastAPI, gRPC, WebSocket, Microservices</p></div>
-    <div class="tech-card reveal"><h3>AI &amp; LLM</h3><p>Claude API, OpenAI, Gemini, MCP Servers, RAG Pipelines, LangChain, pgvector, FAISS</p></div>
     <div class="tech-card reveal"><h3>Databases</h3><p>PostgreSQL, Redis, Elasticsearch, Weaviate, Oracle, ClickHouse, Supabase</p></div>
     <div class="tech-card reveal"><h3>DevOps</h3><p>Docker, Kubernetes, Helm, Terraform, CloudFormation, AWS, Yandex Cloud, GitHub Actions</p></div>
     <div class="tech-card reveal"><h3>Monitoring</h3><p>Prometheus, Grafana, Loki, Alertmanager, Istio, Kiali, CloudWatch, ELK</p></div>
     <div class="tech-card reveal"><h3>Security</h3><p>PCI DSS v3.2.1, AWS WAF, IAM, KMS, network segmentation, CloudTrail audit</p></div>
-    <div class="tech-card reveal"><h3>Mobile</h3><p>React Native, Expo, EAS Build, App Store, Google Play, RuStore, Maestro E2E</p></div>
   </div>
 </div>
 </section>
@@ -260,21 +269,32 @@ footer{
 
   <div class="project reveal">
     <div class="project-header">
-      <h3>EdTech SaaS Platform</h3>
+      <h3>Plugin Marketplace &amp; Agentic Tooling</h3>
       <span class="project-tag">2026 -- Present</span>
     </div>
-    <p>Built from scratch: 11 microservices, web + mobile apps published on App Store, Google Play, RuStore. 2600+ exam questions, 19 courses, 52 lessons with audio generation. Pre-push CI pipeline with 10 checks, 275+ automated tests, zero broken deploys.</p>
+    <p>Built a full plugin marketplace for Claude Code: 20+ plugins with auto-discovery, skills, hooks, commands, and MCP integrations. Multi-agent task runner dispatches parallel work across isolated git worktrees. AI code review pipeline with cyclic fix loops runs autonomously -- review, fix, build, re-review until clean.</p>
     <div class="project-stack">
-      <span>TypeScript</span><span>React 19</span><span>Next.js</span><span>React Native</span><span>Expo</span><span>Supabase</span><span>PostgreSQL</span><span>Docker</span><span>Vitest</span><span>Playwright</span>
+      <span>Claude Code</span><span>MCP</span><span>Plugin SDK</span><span>TypeScript</span><span>Multi-Agent</span><span>Git Worktrees</span><span>GitHub Actions</span>
     </div>
   </div>
 
   <div class="project reveal">
     <div class="project-header">
-      <h3>Financial Analysis Platform</h3>
+      <h3>MCP Servers -- Early Ecosystem</h3>
+      <span class="project-tag">2026 -- Present</span>
+    </div>
+    <p>Among the first Model Context Protocol servers in the ecosystem: Oracle Database integration, Yandex Search + YandexGPT, Russian legal system connector. Production MCP servers enabling LLMs to query enterprise databases, search engines, and domain-specific knowledge bases.</p>
+    <div class="project-stack">
+      <span>Python</span><span>FastAPI</span><span>MCP</span><span>Claude API</span><span>OpenAI</span><span>Docker</span><span>Oracle</span>
+    </div>
+  </div>
+
+  <div class="project reveal">
+    <div class="project-header">
+      <h3>AI Pipelines for Financial Analysis</h3>
       <span class="project-tag">2025 -- Present</span>
     </div>
-    <p>Multi-app platform for tax compliance: centralized auth server (337 tests, zero security incidents), tax portal with AI document classification, 10-stage AI pipeline reducing report generation from days to minutes, 6-stage RAG pipeline cutting response time by 80%.</p>
+    <p>10-stage AI pipeline reducing report generation from days to minutes at a system integrator. 6-stage RAG pipeline cutting response time by 80%. AI document classification for tax compliance. Multi-app platform with centralized auth server (337 tests, zero security incidents).</p>
     <div class="project-stack">
       <span>Next.js</span><span>Hono</span><span>FastAPI</span><span>pgvector</span><span>OpenRouter</span><span>Gemini</span><span>RAG</span><span>n8n</span><span>Terraform</span>
     </div>
@@ -282,34 +302,23 @@ footer{
 
   <div class="project reveal">
     <div class="project-header">
-      <h3>MCP Servers &amp; AI Tools</h3>
+      <h3>EdTech SaaS Platform</h3>
       <span class="project-tag">2026 -- Present</span>
     </div>
-    <p>Among the first Model Context Protocol servers in the ecosystem: Oracle Database, Yandex Search + YandexGPT, Russian legal system (Garant), Claude Code plugin system with marketplace architecture.</p>
+    <p>Solo-built from scratch using AI-assisted development: 11 microservices, web + mobile apps published on App Store, Google Play, RuStore. 2600+ exam questions, 19 courses, 52 lessons with audio generation. Pre-push CI pipeline with 10 checks, 275+ automated tests, zero broken deploys.</p>
     <div class="project-stack">
-      <span>Python</span><span>FastAPI</span><span>MCP</span><span>Claude API</span><span>OpenAI</span><span>Docker</span>
+      <span>TypeScript</span><span>React 19</span><span>Next.js</span><span>React Native</span><span>Expo</span><span>Supabase</span><span>PostgreSQL</span><span>Docker</span>
     </div>
   </div>
 
   <div class="project reveal">
     <div class="project-header">
       <h3>Fintech &amp; Crypto Infrastructure</h3>
-      <span class="project-tag">2020 -- Present</span>
+      <span class="project-tag">2020 -- 2024</span>
     </div>
-    <p>PCI DSS v3.2.1 compliant AWS infrastructure, 10+ payment gateway integrations (fiat + crypto + TON), cryptocurrency trading platform with 4 Go microservices, real-time data aggregation from 150+ sources. Kubernetes cluster with 99.9% uptime, 22 Grafana dashboards, Istio service mesh.</p>
+    <p>PCI DSS v3.2.1 compliant AWS infrastructure at a fintech startup, 10+ payment gateway integrations, cryptocurrency trading platform with 4 Go microservices, real-time data aggregation from 150+ sources. Kubernetes cluster with 99.9% uptime, Istio service mesh, 22 Grafana dashboards.</p>
     <div class="project-stack">
       <span>Go</span><span>Python</span><span>AWS</span><span>Kubernetes</span><span>Helm</span><span>Prometheus</span><span>Grafana</span><span>Istio</span><span>Terraform</span><span>PCI DSS</span>
-    </div>
-  </div>
-
-  <div class="project reveal">
-    <div class="project-header">
-      <h3>UnitECO Product Line</h3>
-      <span class="project-tag">2010 -- Present</span>
-    </div>
-    <p>CCTV systems, fire/security alarm, access controllers. 4 registered intellectual property certificates (Rospatent). Built with C++, Qt, Embedded Linux. Team of up to 25 engineers.</p>
-    <div class="project-stack">
-      <span>C++</span><span>Qt</span><span>Embedded Linux</span><span>Oracle</span><span>PostgreSQL</span>
     </div>
   </div>
 </div>
@@ -322,27 +331,27 @@ footer{
   <div class="achievements">
     <div class="achievement reveal">
       <div class="achievement-icon">&#9881;</div>
-      <div><p><strong>4 MCP Servers</strong> -- among the first Model Context Protocol servers in the ecosystem (Oracle DB, Yandex Search, Garant, Claude Code)</p></div>
+      <div><p><strong>20+ Plugins &amp; MCP Servers</strong> -- built a plugin marketplace for Claude Code with auto-discovery, skills, hooks, multi-agent task runner, and production MCP servers (Oracle DB, Yandex Search, legal system)</p></div>
     </div>
     <div class="achievement reveal">
-      <div class="achievement-icon">&#9878;</div>
-      <div><p><strong>PCI DSS v3.2.1</strong> -- designed compliant AWS infrastructure, successful AOC audit, 10+ payment gateways integrated</p></div>
-    </div>
-    <div class="achievement reveal">
-      <div class="achievement-icon">&#9733;</div>
-      <div><p><strong>99.9% Uptime</strong> -- Kubernetes cluster on Yandex Cloud with Prometheus, Grafana, Istio service mesh</p></div>
-    </div>
-    <div class="achievement reveal">
-      <div class="achievement-icon">&#128241;</div>
-      <div><p><strong>3 App Stores</strong> -- mobile apps published on Apple App Store, Google Play, and RuStore</p></div>
+      <div class="achievement-icon">&#9889;</div>
+      <div><p><strong>AI Code Review Pipeline</strong> -- autonomous review-fix-build-recheck loop using Claude Code and Codex CLI, integrated with GitHub Actions for zero-touch quality gates</p></div>
     </div>
     <div class="achievement reveal">
       <div class="achievement-icon">&#128200;</div>
-      <div><p><strong>80% faster</strong> -- RAG pipeline reduced tax response preparation time, 10-stage AI pipeline generates reports in minutes instead of days</p></div>
+      <div><p><strong>10-Stage AI Pipeline</strong> -- report generation from days to minutes, 6-stage RAG pipeline with 80% faster response preparation, AI document classification in production</p></div>
     </div>
     <div class="achievement reveal">
-      <div class="achievement-icon">&#128218;</div>
-      <div><p><strong>4 Rospatent certificates</strong> -- registered software and databases for UnitECO product line (2010-2012)</p></div>
+      <div class="achievement-icon">&#128241;</div>
+      <div><p><strong>Solo: Team of 25 to 1</strong> -- after downsizing, shipped 11 microservices, 3 app stores, 275+ tests, and full CI/CD alone using agentic workflows and AI-assisted development</p></div>
+    </div>
+    <div class="achievement reveal">
+      <div class="achievement-icon">&#9878;</div>
+      <div><p><strong>PCI DSS v3.2.1</strong> -- designed compliant AWS infrastructure at a fintech startup, successful AOC audit, 10+ payment gateways integrated</p></div>
+    </div>
+    <div class="achievement reveal">
+      <div class="achievement-icon">&#9733;</div>
+      <div><p><strong>99.9% Uptime</strong> -- Kubernetes cluster on cloud with Prometheus, Grafana, Istio service mesh, 22 monitoring dashboards</p></div>
     </div>
   </div>
 </div>
@@ -353,13 +362,12 @@ footer{
   <div class="section-label">// 04 career path</div>
   <h2 class="section-title reveal">Experience</h2>
   <div class="timeline reveal">
-    <div class="tl-item"><div class="tl-period">2026 -- Present</div><div class="tl-role">Founder &amp; Full-Stack Developer</div><div class="tl-company">GIMS Platform (navolnu.ru) &middot; Personal</div><div class="tl-desc">EdTech SaaS: 11 microservices, 2600+ questions, mobile apps in 3 stores</div></div>
-    <div class="tl-item"><div class="tl-period">2025 -- Present</div><div class="tl-role">Full-Stack Developer &amp; AI Architect</div><div class="tl-company">Unite Group of Companies</div><div class="tl-desc">Financial analysis platform: auth server, tax portal, AI pipelines, RAG</div></div>
-    <div class="tl-item"><div class="tl-period">2020 -- Present</div><div class="tl-role">Architect &amp; Lead Developer</div><div class="tl-company">Confidential &middot; Fintech</div><div class="tl-desc">Crypto trading platform, PCI DSS infrastructure, Kubernetes, 150+ data sources</div></div>
-    <div class="tl-item"><div class="tl-period">2010 -- Present</div><div class="tl-role">CTO &amp; Head of Development</div><div class="tl-company">Unite Group of Companies</div><div class="tl-desc">Led 25 engineers, UnitECO product line, 4 Rospatent certificates</div></div>
-    <div class="tl-item"><div class="tl-period">2016 -- 2018</div><div class="tl-role">Senior Software Engineer</div><div class="tl-company">Colvir Software Solutions</div><div class="tl-desc">Banking MIS module (Delphi, PL/SQL, Oracle)</div></div>
-    <div class="tl-item"><div class="tl-period">2004 -- 2006</div><div class="tl-role">Software Developer</div><div class="tl-company">Intel Corporation</div><div class="tl-desc">Eclipse IDE integration for IA-32, IA-64 platforms</div></div>
-    <div class="tl-item"><div class="tl-period">2002 -- 2004</div><div class="tl-role">Early Career</div><div class="tl-company">UNN Research &middot; Public (BREW Games)</div><div class="tl-desc">Cartography research, mobile game development (ARM/BREW)</div></div>
+    <div class="tl-item"><div class="tl-period">2026 -- Present</div><div class="tl-role">AI Agent Systems Engineer &amp; Founder</div><div class="tl-company">Personal &middot; Open Source &amp; navolnu.ru</div><div class="tl-desc">Plugin marketplace for Claude Code (20+ plugins), MCP servers, multi-agent task runner, AI code review pipelines. Solo-built EdTech SaaS: 11 microservices, mobile apps in 3 stores.</div></div>
+    <div class="tl-item"><div class="tl-period">2025 -- Present</div><div class="tl-role">AI Automation Architect</div><div class="tl-company">System Integrator</div><div class="tl-desc">10-stage AI pipeline, 6-stage RAG, AI document classification for tax compliance, centralized auth server (337 tests)</div></div>
+    <div class="tl-item"><div class="tl-period">2020 -- 2024</div><div class="tl-role">Architect &amp; Lead Developer</div><div class="tl-company">Fintech Startup</div><div class="tl-desc">Crypto trading platform, PCI DSS infrastructure, Kubernetes, 150+ data sources, 22 Grafana dashboards</div></div>
+    <div class="tl-item"><div class="tl-period">2010 -- 2020</div><div class="tl-role">CTO &amp; Head of Development</div><div class="tl-company">International Product Company</div><div class="tl-desc">Led 25 engineers, CCTV and security product line, 4 registered IP certificates, C++/Qt/Embedded Linux</div></div>
+    <div class="tl-item"><div class="tl-period">2016 -- 2018</div><div class="tl-role">Senior Software Engineer</div><div class="tl-company">Banking Software Vendor</div><div class="tl-desc">Banking MIS module (Delphi, PL/SQL, Oracle)</div></div>
+    <div class="tl-item"><div class="tl-period">2004 -- 2006</div><div class="tl-role">Software Developer</div><div class="tl-company">Global Semiconductor Corporation</div><div class="tl-desc">IDE integration for IA-32, IA-64 platforms</div></div>
   </div>
 </div>
 </section>
@@ -408,7 +416,7 @@ footer{
 const c=document.getElementById('matrix-bg'),ctx=c.getContext('2d');
 function resize(){c.width=innerWidth;c.height=innerHeight}
 resize();addEventListener('resize',resize);
-const keywords='TypeScript React Next.js Go Python Docker K8s Helm Terraform AWS MCP RAG LLM Claude PostgreSQL Redis FastAPI Hono Expo Grafana Prometheus Istio'.split(' ');
+const keywords='Claude MCP Agent Plugin RAG Pipeline LLM Codex TypeScript React Next.js Go Python Docker K8s Terraform AWS PostgreSQL FastAPI Hono n8n Workflow'.split(' ');
 const cols=Math.floor(c.width/20),drops=Array(cols).fill(1);
 function draw(){
   ctx.fillStyle='rgba(10,10,15,.05)';ctx.fillRect(0,0,c.width,c.height);
